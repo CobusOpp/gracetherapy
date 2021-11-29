@@ -13,7 +13,7 @@ django-filter==2.4.0
 django-js-asset==1.2.2
 django-modelcluster==5.2
 django-phonenumber-field==5.2.0
-django-tinymce==3.3.0
+django-tinymce==3.4.0
 django-widget-tweaks==1.4.9
 draftjs-exporter==2.1.7
 et-xmlfile==1.1.0
