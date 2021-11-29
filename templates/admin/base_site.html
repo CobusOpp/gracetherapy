@@ -1,0 +1,12 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+
+{% block branding %}
+<img src="{% static 'home/GraceTherapyLogo.png' %}" style="max-width:20%; border-radius: 10%;" alt="GraceTherapyLogo">
+
+<h1 id="site-name" style="padding-left: 40px;"><a href="{% url 'admin:index' %}">{{ site_header|default:_('Django administration') }}</a></h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

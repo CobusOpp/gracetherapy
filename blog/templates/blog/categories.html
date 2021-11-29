@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block page_content %}
+
+<h1>{{ cats }} categories</h1>
+
+{% for post in category_posts %}
+
+<a href="{% url 'post_detail' post.slug %}"><h3>{{ post.title }}</h3></a>
+      <h5> by {{ post.author }}</h5>
+<span>{{ post.date_added|date:'d F Y' }}
+
+      <p>{{ post.body|striptags|truncatechars:100 }}</p></span>
+
+{% endfor %}
+
+{% endblock %}

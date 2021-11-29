@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+
+{% block page_content %}
+{% load crispy_forms_tags %}
+
+
+
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-10">
+    	<h1 class="title">{{ post.title }}</h1>
+		
+	     <h5>by {{ post.author }}</h5>
+
+	      <h6>--{{ post.date_added|date:'l d F Y' }}--</h6>
+        <small><strong>Category:</strong> <a href=" {% url 'category' post.category %}">{{ post.category }}</a></small>
+
+	<!-- featured image -->
+<div class="row justify-content-center">
+	{% if post.image.url is not null %}
+	<div class="col-8">
+			<img src="{{ post.image.url }}" class="rounded img-fluid" width="400">
+	</div>
+
+	{% endif %}
+
+</div>
+<br>
+	<p>{{ post.body|safe }}</p>
+	<br>
+  </div>
+  </div>
+  </div>
+<div class="container">
+  <hr color=black>
+
+	<a href = "{% url 'blog' %}">Go Back</a>
+	<br>
+	<hr color=black>
+
+  <h2 class="subtitle">Comments</h2>
+
+{% for comment in post.comments.all %}
+	<article class="media">
+		<div class="media-content">
+			<div class="content">
+				<p>
+					<strong>{{ comment.name }}</strong> <small>{{ comment.date_added|timesince }} ago</small>
+					<br>
+					{{ comment.body|safe }}
+				</p>
+			</div>
+		</div>
+	</article>
+{% empty %}
+	<div class="notification">
+		No comments yet...
+	</div>
+{% endfor %}
+
+<hr color=#cce6ff>
+
+<h2 class="subtitle">Add comment</h2>
+
+
+	<div class="containerform">
+
+			<form method="post" class="uniForm" action=".">
+  		{% csrf_token %}
+
+  		{{ form|crispy }}
+
+  		<div class="field">
+  			<div class="control">
+  				<button class="button is-success">Submit</button>
+  			</div>
+  		</div>
+  	</form>
+	</div>
+</div>
+
+
+
+
+
+  {% endblock %}

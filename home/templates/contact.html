@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{%  block page_content %}
+{% load crispy_forms_tags %}
+
+
+<h2 style="text-align:center">A learning therapy centre, conveniently located for learners in Cape Town’s northern suburbs</h2>
+<br>
+<p>Parents, teachers and psychologists in Durbanville and the surrounding northern suburbs now
+  have easy access to the professional services of educational therapist Dot Nortje at Grace Therapy Centre.</p>
+<br>
+<h5><strong>Address:</strong></h5>
+<br>
+<p>8 A Plein Street, Durbanville, 7550</p>
+<br>
+<h5><strong>Therapy times for learners:</strong></h5>
+<br>
+<p>Monday to Friday:</p>
+<ul>
+  <li>13:30 - 14:15</li>
+  <li>14:30 - 15:15</li>
+  <li>15:30 - 16:15</li>
+  <li>16:30 - 17:15</li>
+</ul>
+<br>
+<hr>
+<br>
+
+<h2 style="text-align:center">Book a session</h2>
+<br>
+
+<div class="col-md-6">
+
+  <form  action="" method="post" class="contact-form">
+    {{ form.media }}
+    {% csrf_token %}
+    {{ form| crispy}}
+
+
+    <input type="submit" value="Submit" class="btn btn-primary">
+    </form>
+  </div>
+
+  
+<br>
+<p><i>We will try to arrange a session for you and your child
+    after school on your preferred date, but cannot guarantee availability.
+    We will contact you to confirm a time and date.</i></p>
+<hr>
+<p><strong>We respect you and your child’s privacy. Your personal data is
+    safe with us and we will never share it with outsiders. We are committed
+    to ensuring the protection and security of your personal information and
+    meeting our data protection obligations in terms of the Protection of Personal
+    Information Act (POPIA).</strong></p>
+<br>
+<h4>Covid-19 safety</h4>
+<ul>
+  <li>To ensure your safety and that of our staff, hand sanitizer is provided at the door. Please sanitize as you enter.</li>
+  <li>Please wear your mask at all times when entering the building and the therapy rooms.</li>
+  <li>During the pandemic, a child may only be accompanied by one parent please.</li>
+  <li>Please forgive us if we don’t shake hands. We may however give you a friendly wave, or elbow bump on request.</li>
+  <li>Surfaces such as computer keyboards, books, toys and therapy equipment are sanitized regularly.</li>
+  <li>At Grace Therapy we are doing all we can to stay healthy so that we can continue to provide you with the individual attention your child deserves.</li>
+  <li>Thank you for your support in maintaining a healthy environment for everyone.</li>
+</ul>
+<br>
+<center>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13257.936152245546!2d18.6510337!3d-33.8256258!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf094878b760d4f75!2sGrace%20Therapy!5e0!3m2!1sen!2sza!4v1637336729438!5m2!1sen!2sza" width="75%" height="75%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</center>
+
+{% endblock %}

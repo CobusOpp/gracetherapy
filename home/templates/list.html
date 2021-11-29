@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block page_content %}
+
+
+
+
+
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for contact in contacts %}
+        <div class="col-sm-4">
+            <div class="card h-100">
+                {% if contact.url %}
+                <div class="card-body" >
+                    <h5 class="card-title text-center">{{ contact.Bussiness_name }}</h5>
+                    <hr>
+                    <p class="card-text">{{ contact.name }}</p>
+                    <p class="card-text">{{ contact.specialty }}</p>
+                    <p class="card-text">{{ contact.tel_num }}</p>
+                    <p class="card-text">{{ contact.description }}</p>
+                    <a href="{{ contact.url }}" target="_blank" rel="noopener noreferrer">
+                     {{ contact.url }}
+                    </a>
+                </div>
+            {% else %}
+            <div class="card-body" >
+                <h5 class="card-title text-center">{{ contact.Bussiness_name }}</h5>
+                <hr>
+                <p class="card-text">{{ contact.name }}</p>
+                <p class="card-text">{{ contact.specialty }}</p>
+                <p class="card-text">{{ contact.tel_num }}</p>
+                <p class="card-text">{{ contact.description }}</p>
+            </div>
+            {% endif %}
+            {% empty %}
+            <h3>No References yet...</h3>
+        </div> 
+      </div>
+        {% endfor %}
+    </div>
+    
+
+
+
+
+{% endblock %}
